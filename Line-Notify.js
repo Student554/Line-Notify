@@ -1,10 +1,10 @@
 function lineNotify() {
-    var calenda = CalendarApp.getCalendarById("...");//ID Calendar
+    var calendar = CalendarApp.getCalendarById("...");//ID Calendar
     var token = "..."; // Line Token 
     var url = "https://notify-api.line.me/api/notify";//Line Notify API
   
     var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-    var event = calenda.getEventsForDay(today);
+    var event = calendar.getEventsForDay(today);
     var msg = "";
     if (event.length === 0) {
       msg = "วันนี้ไม่มีกิจกรรม";
