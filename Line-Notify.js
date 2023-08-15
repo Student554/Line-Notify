@@ -31,13 +31,13 @@ function sendMessage(events) {
   events.forEach(function (event, index) {
     var title = event.getTitle();
     var des = event.getDescription();
+    var lo = event.getLocation();
     var start = event.getStartTime().getHours() + ":" + ("0" + event.getStartTime().getMinutes()).slice(-2);
     var end = event.getEndTime().getHours() + ":" + ("0" + event.getEndTime().getMinutes()).slice(-2);
     if (event.isAllDayEvent()) {
-      msg += String(index + 1) + ") " + "เวลา : " + " ทั้งวัน" + "\n 🔥เรื่อง : " + title + "\n👉 รายละเอียด : " + des + "\n\n";
-      return;
+      msg += String(index + 1) + ") " + "เวลา : " + " ทั้งวัน" + "\n 🔥เรื่อง : " + title + "\n📍สถานที่ : "+lo+"\n👉 รายละเอียด : "+des+ "\n\n";
     }
-    msg += String(index + 1) + ") " + "เวลา : " + start + " - " + end + " น." + "\n🔥เรื่อง : " + title + "\n👉 รายละเอียด : " + des + "\n\n";
+    msg += String(index + 1) + ") " + "เวลา : " + start + " - " + end + " น." + "\n🔥เรื่อง : " + title +"\n📍สถานที่ : "+ lo +"\n👉 รายละเอียด : "+des+"\n\n";
   });
   return msg;
 }
