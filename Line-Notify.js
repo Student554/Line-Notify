@@ -1,7 +1,7 @@
-function myFunction() {
-    var calenda = CalendarApp.getCalendarById("xxx");
-    var token = "xxx"; // Line Token 
-    var url = "https://notify-api.line.me/api/notify";
+function lineNotify() {
+    var calenda = CalendarApp.getCalendarById("...");//ID Calendar
+    var token = "..."; // Line Token 
+    var url = "https://notify-api.line.me/api/notify";//Line Notify API
   
     var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
     var event = calenda.getEventsForDay(today);
@@ -33,10 +33,10 @@ function myFunction() {
       var start = event.getStartTime().getHours() + ":" + ("0" + event.getStartTime().getMinutes()).slice(-2);
       var end = event.getEndTime().getHours() + ":" + ("0" + event.getEndTime().getMinutes()).slice(-2);
       if (event.isAllDayEvent()) {
-        msg += String(index + 1) + ") " + "เวลา : " + " ทั้งวัน" + "\n 🔥เรื่อง : " + title + "\n\n";
+        msg += String(index + 1) + ") " + "เวลา : " + " ทั้งวัน" + "\n เรื่อง : " + title + "\n\n";
         return;
       }
-      msg += String(index + 1) + ") " + "เวลา : " + start + " - " + end + " น." + "\n🔥เรื่อง : " + title + "\n\n";
+      msg += String(index + 1) + ") " + "เวลา : " + start + " - " + end + " น." + "\nเรื่อง : " + title + "\n\n";
     });
     return msg;
   }
